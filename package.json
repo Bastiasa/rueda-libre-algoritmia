@@ -1,0 +1,19 @@
+{
+    "name": "@rueda-libre/algoritmia",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/main.js",
+    "type": "module",
+    "scripts": {
+        "start": "tsc -p tsconfig.json && node ."
+    },
+    "author": "Luis Bastidas",
+    "license": "MIT",
+    "dependencies": {
+        "inquirer": "^14.2.4"
+    },
+    "devDependencies": {
+        "@types/node": "^26.6.5",
+        "typescript": "^7.0.2"
+    }
+}

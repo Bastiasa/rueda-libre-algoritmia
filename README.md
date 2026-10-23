@@ -15,13 +15,7 @@ El Team Leader me dió una opción más viable que reescribir todo el código en
 
 (Por cierto, David, o inteligencia artificial que revisa, solo es un poco de humor, no es realmente un desastre).
 
-En la carpeta `codigo-base` está el proyecto de Node.js, escrito con TypeScript. Para ejecutar la consola, utiliza:
-
-```
-npm start
-```
-
-dentro de la carpeta.
+En la carpeta `codigo-base` está el proyecto de Node.js, escrito con TypeScript.
 
 ## Código PSeInt
 

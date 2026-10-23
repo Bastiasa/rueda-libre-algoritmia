@@ -116,7 +116,9 @@ Hola, Tung Tung Tung Tung Sahur: tu alquiler de -67 horas cuesta $-670.000
 ```
 
 ### Ruta del código del algoritmo
-`src/algorithms/basic-cot.ts`.
+
+TypeScript: `src/algorithms/basic-cot.ts`.
+PSeInt: `pseint/CotizacionBasica.psc`.
 
 ## MiniReto 3
 
@@ -182,4 +184,87 @@ flowchart TD
 
 ### Ruta del código del algoritmo
 
-`src/algorithms/cot-recorr.ts`
+TypeScript: `src/algorithms/cot-recorr.ts`
+PSeInt: `pesint/CotizacionRecorrido.ts`
+
+
+## MiniReto 4
+
+### Cálculo del alquiler
+
+Para el cálculo del alquiler, lo definiría así:
+
+```
+aporteVoluntario = 0 o 1
+costoTotal = (sumaAlquilerBicis + precioRecorrido)
+costoFinal = (costoTotal) + (costoTotal * 0.1 * aporteVoluntario)
+
+costoPorIntegranteSinRedondear = costoFinal / clientes
+costoPorIntegrante = ceil(costoPorIntegranteSinRedondear / 100) * 100
+```
+
+### Uso de trunc o redon
+
+En mi caso utilicé `Math.ceil` que en PSeInt es `trunc`. La formula para calcular el valor redondeado hacia arriba a la centena es esta:
+
+```
+Math.ceil(valor / 100) * 100
+```
+
+**¿Por qué funciona?**
+
+Porque `Math.ceil` lleva el valor a su entero más cercano (ej: `Math.ceil(1.5) = 1`)
+
+### Casos de uso
+
+#### 3 personas, 3 bicicletas por 2 horas y Río y Parques
+
+**Resultado**
+
+```
+✔ Seleccione el algoritmo de Rueda Libre Asistente de Taquilla v0.1
+
+✔ Escriba el número de bicicletas urbanas para alquilar. 3
+✔ Escriba la cantidad de horas que durará el alquiler 2
+✔ Seleccione la ruta que le gustaría tener Río y Parques, 12km, 2h,
+ $45.000 por persona
+✔ Escriba la cantidad de personas que participarán en el recorrido.
+ 3
+✔ ¿Desea hacer un aporte voluntario del 10%? Sí
+El costo del alquiler sería de $214.500
+Gracias por tu aporte voluntario de $19.500 (el 10%).
+Si se desean dividir la cuenta entre las 3 personas, el precio que cada uno debe pagar es de $71.500
+```
+
+#### 4 personas, 3 bicicletas por 3 horas y Sabores de Barrio
+
+```
+✔ Seleccione el algoritmo de Rueda Libre Asistente de Taquilla v0.1
+
+✔ Escriba el número de bicicletas urbanas para alquilar. 3
+✔ Escriba la cantidad de horas que durará el alquiler 3
+✔ Seleccione la ruta que le gustaría tener Sabores de Barrio, 18km,
+ 3h, $60.000 por persona
+✔ Escriba la cantidad de personas que participarán en el recorrido.
+ 4
+✔ ¿Desea hacer un aporte voluntario del 10%? Sí
+El costo del alquiler sería de $363.000
+Gracias por tu aporte voluntario de $33.000 (el 10%).
+Si se desean dividir la cuenta entre las 4 personas, el precio que cada uno debe pagar es de $90.800
+```
+
+#### Caso diseñado por mí: 67 personas, 6767 bicicletas, 676767 horas, ningún recorrido
+
+```
+✔ Seleccione el algoritmo de Rueda Libre Asistente de Taquilla v0.1
+
+✔ Escriba el número de bicicletas urbanas para alquilar. 6767
+✔ Escriba la cantidad de horas que durará el alquiler 676767
+✔ Seleccione la ruta que le gustaría tener Ninguna
+✔ Escriba la cantidad de personas que participarán en el recorrido.
+ 6767
+✔ ¿Desea hacer un aporte voluntario del 10%? Sí
+El costo del alquiler sería de $50.376.505.179.000
+Gracias por tu aporte voluntario de $4.579.682.289.000 (el 10%).
+Si se desean dividir la cuenta entre las 6767 personas, el precio que cada uno debe pagar es de $7.444.437.000
+```

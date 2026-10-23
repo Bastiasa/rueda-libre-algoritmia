@@ -48,3 +48,72 @@
 - Abstracción: Dejé por fuera detalles que no son necesarios para explicar el proceso principal, como el color de las bicicletas, sus marcas, los nombres de los clientes o el método específico de pago. Me concentré en la información necesaria para determinar si se puede realizar el alquiler.
 
 - Algoritmo: Organicé los pasos en una secuencia lógica que comienza con la identificación del cliente y termina con la entrega de la bicicleta o la cancelación del proceso. Además, incluí decisiones para manejar los casos en los que una bicicleta no está disponible o el cliente no cumple con las condiciones del alquiler.
+
+## MiniReto 2
+
+
+**Una aclaración:** Nuestro asombroso Team Leader, Jesús, el único e inigualable, nos permitió usar JavaScript (Aunque yo en mi defecto utilizo TypeScript).
+
+### Ejemplos del algoritmo
+
+1. **Con una hora**:
+
+    - Resultado esperado: `$10.000`
+
+    - Resultado obtenido: 
+        ```
+        ✔ Seleccione el algoritmo de Rueda Libre Cotización Básica
+        ✔ Escriba su nombre Luis
+        ✔ Escriba el número de horas que desea usar la bicicleta 1
+        Hola, Luis: tu alquiler de 1 hora cuesta $10.000
+        ```
+
+2. **Con tres horas**:
+
+    - Resultado esperado: `$30.000`
+
+    - Resultado obtenido: 
+        ```
+        ✔ Seleccione el algoritmo de Rueda Libre Cotización Básica
+        ✔ Escriba su nombre Luis
+        ✔ Escriba el número de horas que desea usar la bicicleta 3
+        Hola, Luis: tu alquiler de 3 horas cuesta $30.000
+        ```
+3. **Con ocho horas**:
+
+    - Resultado esperado: `$80.000`
+
+    - Resultado obtenido: 
+        ```
+        ✔ Seleccione el algoritmo de Rueda Libre Cotización Básica
+        ✔ Escriba su nombre Luis
+        ✔ Escriba el número de horas que desea usar la bicicleta 8
+        Hola, Luis: tu alquiler de 8 horas cuesta $80.000
+        ```
+
+### Casos excepcionales
+
+#### Caso #1: cero horas
+
+Al dar como argumento cero horas como valor, el alquiler, sería `PRICE_PER_HOUR * 0`, lo que en total, daría cero:
+
+```
+✔ Seleccione el algoritmo de Rueda Libre Cotización Básica
+✔ Escriba su nombre Charlie Kirk
+✔ Escriba el número de horas que desea usar la bicicleta 0
+Hola, Charlie Kirk: tu alquiler de 0 horas cuesta $0
+```
+
+#### Caso #2: horas negativas
+
+Con horas negativas, el precio total sería negativo. Básicamente la tienda tendría que pagarle al cliente:
+
+```
+✔ Seleccione el algoritmo de Rueda Libre Cotización Básica
+✔ Escriba su nombre Tung Tung Tung Tung Sahur
+✔ Escriba el número de horas que desea usar la bicicleta -67
+Hola, Tung Tung Tung Tung Sahur: tu alquiler de -67 horas cuesta $-670.000
+```
+
+### Ruta del código del algoritmo
+`src/algorithms/basic-cot.ts`.

@@ -1,131 +1,122 @@
-Proceso AsistenteTaquillaV0_1
-    Definir bikes, hours, opcionRuta, aporte Como Entero
-    Definir precioBicicleta, precioRuta Como Real
-    Definir startingPrice, voluntaryContribution Como Real
-    Definir finalPrice, pricePerPerson Como Real
-    Definir nombreRuta Como Caracter
-	
-    precioBicicleta <- 10000
-	
-    Escribir "=== RUEDA LIBRE - ASISTENTE TAQUILLA v0.1 ==="
-    Escribir ""
-	
-    // Solicitar cantidad de bicicletas
-    Repetir
-        Escribir "Escriba el numero de bicicletas urbanas para alquilar:"
-        Leer bikes
-		
-        Si bikes <= 0 Entonces
-            Escribir "Debe alquilar al menos una bicicleta."
-        FinSi
-    Hasta Que bikes > 0
-	
-    // Solicitar horas de alquiler
-    Repetir
-        Escribir "Escriba la cantidad de horas que durara el alquiler:"
-        Leer hours
-		
-        Si hours < 1 Entonces
-            Escribir "Debe alquilar por lo menos una hora."
-        FinSi
-    Hasta Que hours >= 1
-	
-    // Seleccionar recorrido
-    Escribir ""
-    Escribir "Seleccione la ruta que le gustaria tener:"
-    Escribir "1. Rio y Parques - 12 km - 2 horas - $45000"
-    Escribir "2. Sabores de Barrio - 18 km - 3 horas - $60000"
-    Escribir "3. Rio y Parques - 25 km - 4 horas - $85000"
-    Escribir "4. Ninguna"
-	
-    Repetir
-        Leer opcionRuta
-		
-        Si opcionRuta < 1 O opcionRuta > 4 Entonces
-            Escribir "Seleccione una opcion entre 1 y 4."
-        FinSi
-    Hasta Que opcionRuta >= 1 Y opcionRuta <= 4
-	
-    // Asignar precio de la ruta
-    Segun opcionRuta Hacer
-        1:
-            nombreRuta <- "Rio y Parques"
-            precioRuta <- 45000
-        2:
-            nombreRuta <- "Sabores de Barrio"
-            precioRuta <- 60000
-        3:
-            nombreRuta <- "Rio y Parques (25 km)"
-            precioRuta <- 85000
-        4:
-            nombreRuta <- "Ninguna"
-            precioRuta <- 0
-    FinSegun
-	
-    // Calcular precio del alquiler y recorrido
-    startingPrice <- bikes * precioBicicleta * hours
-	
-    Si opcionRuta <> 4 Entonces
-        startingPrice <- startingPrice + precioRuta * bikes
+Algoritmo AsistenteTaquilla
+
+Definir bicicletas, horas, personas Como Entero
+Definir ruta, opcionAporte Como Entero
+Definir precioBicicleta, precioRuta Como Real
+Definir precioInicial, aporteVoluntario Como Real
+Definir precioFinal, precioPorPersona Como Real
+
+// Precio del alquiler por bicicleta por hora
+precioBicicleta <- 5000
+
+// Solicitar cantidad de bicicletas
+Repetir
+    Escribir "Escriba el numero de bicicletas urbanas para alquilar:"
+    Leer bicicletas
+
+    Si bicicletas <= 0 Entonces
+        Escribir "Debe alquilar al menos una bicicleta."
     FinSi
-	
-    // Preguntar por aporte voluntario
-    Escribir ""
-    Escribir "Desea hacer un aporte voluntario del 10%?"
-    Escribir "1. Si"
-    Escribir "2. No"
-	
-    Repetir
-        Leer aporte
-		
-        Si aporte <> 1 Y aporte <> 2 Entonces
-            Escribir "Ingrese 1 para Si o 2 para No."
-        FinSi
-    Hasta Que aporte = 1 O aporte = 2
-	
-    // Calcular aporte voluntario
-    voluntaryContribution <- startingPrice * 0.10
-	
-    // Calcular costo final
-    Si aporte = 1 Entonces
-        finalPrice <- startingPrice + voluntaryContribution
-    SiNo
-        finalPrice <- startingPrice
-        voluntaryContribution <- 0
+Hasta Que bicicletas > 0
+
+// Solicitar cantidad de horas
+Repetir
+    Escribir "Escriba la cantidad de horas que durara el alquiler:"
+    Leer horas
+
+    Si horas < 1 Entonces
+        Escribir "Debe alquilar por lo menos una hora."
     FinSi
-	
-    // Calcular precio por persona
-    pricePerPerson <- finalPrice / bikes
-	
-    // Redondear hacia arriba a la centena
-    pricePerPerson <- REDON(pricePerPerson / 100)
-	
-    Si pricePerPerson * 100 < finalPrice / bikes Entonces
-        pricePerPerson <- pricePerPerson + 1
+Hasta Que horas >= 1
+
+// Seleccionar ruta
+Escribir "Seleccione la ruta que le gustaria tener:"
+Escribir "1. Ruta corta"
+Escribir "2. Ruta media"
+Escribir "3. Ruta larga"
+Escribir "4. Ninguna"
+
+Repetir
+    Leer ruta
+
+    Si ruta < 1 O ruta > 4 Entonces
+        Escribir "Seleccione una opcion valida entre 1 y 4."
     FinSi
-	
-    pricePerPerson <- pricePerPerson * 100
-	
-    // Mostrar resultados
-    Escribir ""
-    Escribir "=== RESUMEN DE LA CUENTA ==="
-    Escribir "Bicicletas alquiladas: ", bikes
-    Escribir "Horas de alquiler: ", hours
-    Escribir "Ruta seleccionada: ", nombreRuta
-    Escribir "Costo del alquiler y recorrido: $", startingPrice
-	
-    Si aporte = 1 Entonces
-        Escribir "Aporte voluntario (10%): $", voluntaryContribution
-        Escribir "Gracias por tu aporte voluntario."
-    SiNo
-        Escribir "Sin aporte voluntario."
+Hasta Que ruta >= 1 Y ruta <= 4
+
+// Asignar precio por persona segun la ruta
+Segun ruta Hacer
+    1:
+        precioRuta <- 3000
+    2:
+        precioRuta <- 5000
+    3:
+        precioRuta <- 8000
+    4:
+        precioRuta <- 0
+FinSegun
+
+// Solicitar cantidad de personas
+Repetir
+    Escribir "Escriba la cantidad de personas que participaran en el recorrido:"
+    Leer personas
+
+    Si personas < 1 Entonces
+        Escribir "Debe haber por lo menos una persona."
     FinSi
-	
-    Escribir "Costo final del alquiler: $", finalPrice
-	
-    Si bikes > 1 Entonces
-        Escribir "Si dividen la cuenta entre las ", bikes, " personas:"
-        Escribir "Cada persona debe pagar: $", pricePerPerson
+Hasta Que personas >= 1
+
+// Calcular el precio inicial
+precioInicial <- bicicletas * precioBicicleta * horas
+
+Si ruta <> 4 Entonces
+    precioInicial <- precioInicial + precioRuta * personas
+FinSi
+
+// Preguntar si desea realizar el aporte voluntario
+Escribir "Desea hacer un aporte voluntario del 10 %?"
+Escribir "1. Si"
+Escribir "2. No"
+
+Repetir
+    Leer opcionAporte
+
+    Si opcionAporte <> 1 Y opcionAporte <> 2 Entonces
+        Escribir "Seleccione 1 para Si o 2 para No."
     FinSi
-	
-FinProceso
+Hasta Que opcionAporte = 1 O opcionAporte = 2
+
+// Calcular aporte voluntario
+aporteVoluntario <- precioInicial * 0.10
+
+// Calcular precio final
+Si opcionAporte = 1 Entonces
+    precioFinal <- precioInicial + aporteVoluntario
+SiNo
+    precioFinal <- precioInicial
+FinSi
+
+// Calcular precio por persona y redondear hacia arriba
+precioPorPersona <- precioFinal / personas
+precioPorPersona <- Redon((precioPorPersona + 99) / 100) * 100
+
+// Mostrar resultados
+Escribir ""
+Escribir "========== RESUMEN DEL ALQUILER =========="
+Escribir "El costo del alquiler seria de $", precioFinal
+
+Si opcionAporte = 1 Entonces
+    Escribir "Gracias por tu aporte voluntario de $", aporteVoluntario, " (el 10 %)."
+SiNo
+    Escribir "Sin aporte voluntario."
+FinSi
+
+Si personas > 1 Entonces
+    Escribir "Si se desea dividir la cuenta entre las ", personas, " personas:"
+    Escribir "Cada persona debe pagar aproximadamente $", precioPorPersona
+FinSi
+
+Escribir "=========================================="
+
+
+FinAlgoritmo

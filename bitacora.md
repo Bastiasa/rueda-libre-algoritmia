@@ -117,3 +117,69 @@ Hola, Tung Tung Tung Tung Sahur: tu alquiler de -67 horas cuesta $-670.000
 
 ### Ruta del código del algoritmo
 `src/algorithms/basic-cot.ts`.
+
+## MiniReto 3
+
+### Prueba de escritorio para un grupo de 4 personas:
+
+**Resultados hechos a mano:**
+
+|Total a Pagar|Valor del anticipo|Saldo que queda pendiente|
+|:---|:---|:---|
+|$240.000|$72.000|$168.000|
+
+**Resultados del programa**
+
+```
+✔ Seleccione el algoritmo de Rueda Libre Cotización Recorrido
+✔ Seleccione el recorrido Sabores de Barrio, 18km, 3h, $60.000 (por persona)
+✔ Escriba la cantidad de personas 4
+El precio total del recorrido es: $240.000.
+Para poder confirmar, debes pagar un anticipo del 30%, que sería: $72.000.
+Luego tendrás un saldo pendiente de $168.000.
+```
+
+### Diagrama de flujo del algoritmo
+
+```mermaid
+flowchart TD
+    A([Inicio])
+
+    B[Definir rutas disponibles y porcentaje de anticipo]
+
+    C[/Mostrar rutas disponibles y solicitar selección/]
+
+    D[/Ingresar cantidad de personas/]
+
+    E[Obtener ruta seleccionada y cantidad de personas]
+
+    F[Calcular precio total = precio por persona × cantidad de personas]
+
+    G[Calcular anticipo = redondear precio total × 0.30]
+
+    H[Calcular saldo pendiente = precio total × 0.70]
+
+    I[/Mostrar precio total/]
+
+    J[/Mostrar valor del anticipo/]
+
+    K[/Mostrar saldo pendiente/]
+
+    L([Fin])
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+    J --> K
+    K --> L
+```
+
+### Ruta del código del algoritmo
+
+`src/algorithms/cot-recorr.ts`

@@ -1,8 +1,12 @@
 import inquirer from "inquirer";
 import { ExitPromptError } from "@inquirer/core";
 import { cotizacionBasica } from "./algorithms/basic-cot.js";
+import { cotizacionRecorrido } from "./algorithms/cot-recorr.js";
 
-const ALGOs: [string, () => any][] = [["Cotización Básica", cotizacionBasica]];
+const ALGOs: [string, () => any][] = [
+    ["Cotización Básica", cotizacionBasica],
+    ["Cotización Recorrido", cotizacionRecorrido],
+];
 
 async function main() {
     const { selectedAlgorithm } = await inquirer.prompt({

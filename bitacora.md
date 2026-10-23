@@ -25,3 +25,26 @@
         1. Se vuelve al paso número 3. 
     5. Si el cliente no está interesado:
         1. Se finaliza el proceso de alquiler.
+
+
+### Características de un algoritmo
+
+- Precisión: El algoritmo indica claramente qué debe hacer el cliente y qué debe hacer el tendero en cada paso. Por ejemplo, el cliente entrega sus documentos de identidad y el tendero verifica si está registrado y si tiene algún bloqueo que le impida alquilar una bicicleta.
+
+- Finitud: El algoritmo tiene un inicio y un final. Por ejemplo, el proceso termina cuando el cliente recibe la bicicleta después de pagar el alquiler o cuando decide no alquilar ninguna de las opciones disponibles.
+
+- Orden: Los pasos deben seguir una secuencia lógica para que el alquiler se realice correctamente. Por ejemplo, primero se verifican los documentos del cliente, después se selecciona la bicicleta y se revisa su estado, y finalmente se realiza el pago y se entrega la bicicleta si todo está en orden.
+
+- Determinismo: Cada decisión depende de una condición específica y conduce a un resultado definido. Por ejemplo, si la bicicleta está disponible y en buen estado, se puede continuar con el alquiler. Si no lo está, se informa al cliente y se le ofrecen otras opciones.
+    
+- Efectividad: Cada paso se puede realizar de manera práctica y permite avanzar en el proceso. Por ejemplo, el tendero puede revisar el estado de la bicicleta para comprobar si funciona correctamente y determinar si puede alquilarse al cliente.
+
+### Los cuatro pilares del pensamiento computacional
+
+- Descomposición: Dividí el proceso de alquiler en tareas más pequeñas: verificar los documentos del cliente, consultar su registro, seleccionar las bicicletas, revisar su estado, recibir el pago y entregar la bicicleta. También incluí una alternativa para cuando no sea posible realizar el alquiler.
+
+- Reconocimiento de patrones: Identifiqué que con cada cliente se repiten los mismos pasos: verificar su identidad, revisar sus condiciones, conocer qué bicicleta desea y comprobar si está disponible. Si hay algún problema, se le ofrecen otras opciones siguiendo el mismo procedimiento.
+
+- Abstracción: Dejé por fuera detalles que no son necesarios para explicar el proceso principal, como el color de las bicicletas, sus marcas, los nombres de los clientes o el método específico de pago. Me concentré en la información necesaria para determinar si se puede realizar el alquiler.
+
+- Algoritmo: Organicé los pasos en una secuencia lógica que comienza con la identificación del cliente y termina con la entrega de la bicicleta o la cancelación del proceso. Además, incluí decisiones para manejar los casos en los que una bicicleta no está disponible o el cliente no cumple con las condiciones del alquiler.

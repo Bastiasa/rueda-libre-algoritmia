@@ -4,7 +4,7 @@ El código originalmente se escribió en TypeScript, pues nuestro Team Leader no
 
 ## Y para evitarnos tanto trabajo
 
-El Team Leader me dió una opción más viable que reescribir todo el código en un lenguaje tan incómodo como lo es PSeInt: Dile a la inteligencia artificial que lo transfiera por ti. Y eso hice, pero prometo que el código escrito en TypeScript es totalmente hecho a mano
+El Team Leader me dió una opción más viable que reescribir todo el código en un lenguaje tan incómodo como lo es PSeInt: *Dile a la inteligencia artificial que lo transfiera por ti*. Y eso hice, pero prometo que el código escrito en TypeScript es totalmente hecho a mano
 
 *Se los juro, les puedo justificar lo que quieran.*
 
